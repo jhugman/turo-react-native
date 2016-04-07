@@ -1,0 +1,3 @@
+rootProject.name = 'Turo'
+
+include ':app'

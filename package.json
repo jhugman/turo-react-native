@@ -1,0 +1,19 @@
+{
+  "name": "Turo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node_modules/react-native/packager/packager.sh"
+  },
+  "dependencies": {
+    "events": "^1.1.0",
+    "react": "^0.14.8",
+    "react-native": "^0.22.2",
+    "react-native-keyboardevents": "^0.4.5",
+    "turo": "jhugman/turo",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "tap": "^5.7.0"
+  }
+}
