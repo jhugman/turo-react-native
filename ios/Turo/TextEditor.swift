@@ -16,6 +16,10 @@ public class TextEditor: RCTView {
 
     let eventDispatcher: RCTEventDispatcher
 
+    var onInit: RCTBubblingEventBlock? = nil
+
+    var onChangeDocument: RCTBubblingEventBlock? = nil
+
     var hasNewText: Bool = false
 
     class func createTextContainer (textStorage: NSTextStorage) -> NSTextContainer {
@@ -194,6 +198,7 @@ extension TextEditor {
                 "textWrappingOffsets": softWraps
             ]
             self.eventDispatcher.sendInputEventWithName("initDone", body: body)
+            self.onInit?(body)
             hasNewText = false
         }
     }
@@ -208,6 +213,7 @@ extension TextEditor: UITextViewDelegate {
             "textWrappingOffsets": softWraps
         ]
         self.eventDispatcher.sendInputEventWithName("changeDocument", body: body)
+        self.onChangeDocument?(body)
     }
 
     public func textViewDidChangeSelection(textView: UITextView) {

@@ -115,7 +115,7 @@ var EditorSurface = React.createClass({
         lineNum = line.lineIndex + 1;
     if (line.visible) {
       return (
-        <View style={[height, styles.itemContainer, styles.lineNumContainer]}>
+        <View key={lineNum} style={[height, styles.itemContainer, styles.lineNumContainer]}>
           <Text style={styles.lineNum}>{lineNum}</Text>
         </View>
       );
@@ -134,7 +134,7 @@ var EditorSurface = React.createClass({
     var height = {height: statement.height};
     if (statement.isParseable()) {
       return (
-        <View style={[height, styles.itemContainer, styles.resultContainer]}>
+        <View key={rowID} style={[height, styles.itemContainer, styles.resultContainer]}>
           <Text style={styles.result}>
             {statement.valueToString(undefined, prefs)}
           </Text>

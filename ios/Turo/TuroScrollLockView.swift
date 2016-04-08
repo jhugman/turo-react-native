@@ -75,7 +75,7 @@ class LockingScrollViewDelegate: ForwardingUIScrollViewDelegate {
         self.parent = parent
 
         super.init()
-        if let delegate = forwardingDelegate as? ForwardingUIScrollViewDelegate {
+        if let delegate = forwardingDelegate as? UITextViewDelegate {
             self.nativeMainScrollDelegate = delegate
         } else {
             self.nativeMainScrollDelegate = nil

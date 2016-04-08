@@ -7,7 +7,6 @@
 #import "RCTScrollView.h"
 #import "RCTScrollableProtocol.h"
 #import "RCTViewManager.h"
-#import "RCTView.h"
 #import "UIView+React.h"
 
 #import "AppDelegate.h"

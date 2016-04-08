@@ -9,6 +9,21 @@ var {
   View,
 } = React;
 
+var allButtons = {
+  alphanum: [
+    {text: 'Done', action: 'dismissKeyboard', },
+    {text: '123', action: 'numbersKeyboard', },
+  ],
+  none: [
+    // {text: 'ABC', action: 'qwertyKeyboard', },
+    {text: '123', action: 'numbersKeyboard', },
+  ],
+  numbers: [
+    {text: 'Done', action: 'dismissKeyboard', },
+    {text: 'ABC', action: 'qwertyKeyboard', },
+  ],
+};
+
 var styles = require('../styles/editor-accessory');
 
 var EditorAccessory = React.createClass({
@@ -45,6 +60,7 @@ var EditorAccessory = React.createClass({
   renderButton: function (b) {
       return (
         <TouchableHighlight
+            key={b.text}
             activeOpacity={0.2}
             style={styles.button} 
             onPress={() => this._handleStaticButton(b)} >
@@ -56,6 +72,7 @@ var EditorAccessory = React.createClass({
   renderSuggestion: function(completion) {
       return (
         <TouchableHighlight
+            key={completion}
             activeOpacity={0.2}
             style={styles.completion} 
             onPress={() => this._handlePress(completion)} >
@@ -76,31 +93,25 @@ var EditorAccessory = React.createClass({
     if (completions.length > 10) {
       completions.length = 10;
     }
-    var suggestions = _.map(completions, (completion) => this.renderSuggestion(completion));
-    var allButtons = {
-      alphanum: [
-        {text: 'Done', action: 'dismissKeyboard', },
-        {text: '123', action: 'numbersKeyboard', },
-      ],
-      none: [
-        // {text: 'ABC', action: 'qwertyKeyboard', },
-        {text: '123', action: 'numbersKeyboard', },
-      ],
-      numbers: [
-        {text: 'Done', action: 'dismissKeyboard', },
-        {text: 'ABC', action: 'qwertyKeyboard', },
-      ],
-    };
 
-    var buttons = allButtons[keyboardType];
-    return (
+    let buttons = allButtons[keyboardType].map(this.renderButton, this)
+    let suggestions = completions.map(this.renderSuggestion, this)
+    if (completions.length > 0) {
+      return (
         <View style={styles.container}>
-          {buttons.map(this.renderButton, this)}
-          <ScrollView horizontal={true} style={styles.scrollView}>
-            {completions.map(this.renderSuggestion, this)}
-          </ScrollView>
+            {buttons}
+            <ScrollView horizontal={true} style={styles.scrollView}>
+              {suggestions}
+            </ScrollView>
         </View>
-    );
+      )
+    } else {
+      return (
+        <View style={styles.container}>
+          {buttons}
+        </View>
+      )
+    }
   },
 
   _handleCursorChange: function () {

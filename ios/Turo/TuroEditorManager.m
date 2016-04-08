@@ -23,6 +23,9 @@ RCT_EXPORT_VIEW_PROPERTY(textInsert, NSDictionary)
 RCT_EXPORT_VIEW_PROPERTY(textDelete, NSDictionary)
 RCT_EXPORT_VIEW_PROPERTY(keyboardVisibility, NSDictionary)
 
+RCT_EXPORT_VIEW_PROPERTY(onChangeDocument, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onInit, RCTBubblingEventBlock)
+
 RCT_REMAP_VIEW_PROPERTY(html, HTML, NSString)
 RCT_EXPORT_VIEW_PROPERTY(autoHeight, BOOL)
 
@@ -38,9 +41,7 @@ RCT_EXPORT_VIEW_PROPERTY(autoHeight, BOOL)
 - (NSArray *)customDirectEventTypes
 {
     return @[
-        @"changeDocument",
         @"changeLine",
-        @"initDone",
         @"changeSelection",
         @"menuItemTapped",
     ];
