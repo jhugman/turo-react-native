@@ -152,7 +152,7 @@ public class TextEditor: RCTView {
     @objc public var textDelete: [String: AnyObject] {
         set {
             if let num = newValue["deleteLength"] as? Int {
-              for _ in 0...num {
+              for _ in 1...num {
                 textView.deleteBackward()
               }
             } else {
@@ -245,13 +245,8 @@ extension TextEditor {
     public override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
         // You need to only return true for the actions you want, otherwise you get the whole range of
         //  iOS actions. You can see this by just removing the if statement here.
-
-        for i in 0...2 {
-            if action == Selector("menuItemTapped_\(i):") {
-                return true
-            }
-        }
-        return false
+      let actions = [#selector(menuItemTapped_0), #selector(menuItemTapped_1), #selector(menuItemTapped_2)]
+      return actions.contains(action)
     }
 
     func calculateTextWrappedLines () -> [NSDictionary] {
@@ -283,8 +278,8 @@ class TuroCodeView: UITextView {
     override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
         // You need to only return true for the actions you want, otherwise you get the whole range of
         //  iOS actions. You can see this by just removing the if statement here.
-        for sel in ["select", "selectAll", "defineSelection"] {
-            if action == Selector("\(sel):") {
+      for sel in [#selector(select), #selector(selectAll), Selector("defineSelection")] {
+            if action == sel {
                 return false
             }
         }
