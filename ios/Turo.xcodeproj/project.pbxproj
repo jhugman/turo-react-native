@@ -16,19 +16,18 @@
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
-		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		3906E4441CB3462B00DB0D10 /* libRNKeyboardEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3906E4431CB345FE00DB0D10 /* libRNKeyboardEvents.a */; };
+		3906E4511CBB0E2A00DB0D10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3906E4501CBB0E2A00DB0D10 /* AppDelegate.swift */; };
 		390D1CEB1CB31FAA005CDE56 /* ForwardingUIScrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 390D1CE11CB31FAA005CDE56 /* ForwardingUIScrollViewDelegate.m */; };
-		390D1CEC1CB31FAA005CDE56 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 390D1CE21CB31FAA005CDE56 /* main.jsbundle */; };
 		390D1CED1CB31FAA005CDE56 /* SyntaxHighlightTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D1CE31CB31FAA005CDE56 /* SyntaxHighlightTextStorage.swift */; };
 		390D1CEE1CB31FAA005CDE56 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D1CE41CB31FAA005CDE56 /* TextEditor.swift */; };
 		390D1CF01CB31FAA005CDE56 /* TuroEditorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 390D1CE71CB31FAA005CDE56 /* TuroEditorManager.m */; };
 		390D1CF11CB31FAA005CDE56 /* TuroScrollLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D1CE81CB31FAA005CDE56 /* TuroScrollLockView.swift */; };
 		390D1CF21CB31FAA005CDE56 /* TuroScrollLockViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 390D1CEA1CB31FAA005CDE56 /* TuroScrollLockViewManager.m */; };
+		39B0F1B11CBB13BC000934A5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0F1B01CBB13BC000934A5 /* main.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -132,17 +131,14 @@
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Turo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Turo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Turo/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Turo/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Turo/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Turo/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Turo/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		3906E4341CB345FE00DB0D10 /* RNKeyboardEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeyboardEvents.xcodeproj; path = "../node_modules/react-native-keyboardevents/RNKeyboardEvents.xcodeproj"; sourceTree = "<group>"; };
+		3906E4501CBB0E2A00DB0D10 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Turo/AppDelegate.swift; sourceTree = "<group>"; };
 		390D1CE01CB31FAA005CDE56 /* ForwardingUIScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForwardingUIScrollViewDelegate.h; path = Turo/ForwardingUIScrollViewDelegate.h; sourceTree = "<group>"; };
 		390D1CE11CB31FAA005CDE56 /* ForwardingUIScrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForwardingUIScrollViewDelegate.m; path = Turo/ForwardingUIScrollViewDelegate.m; sourceTree = "<group>"; };
-		390D1CE21CB31FAA005CDE56 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = Turo/main.jsbundle; sourceTree = "<group>"; };
 		390D1CE31CB31FAA005CDE56 /* SyntaxHighlightTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyntaxHighlightTextStorage.swift; path = Turo/SyntaxHighlightTextStorage.swift; sourceTree = "<group>"; };
 		390D1CE41CB31FAA005CDE56 /* TextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextEditor.swift; path = Turo/TextEditor.swift; sourceTree = "<group>"; };
 		390D1CE61CB31FAA005CDE56 /* TuroEditorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuroEditorManager.h; path = Turo/TuroEditorManager.h; sourceTree = "<group>"; };
@@ -150,6 +146,7 @@
 		390D1CE81CB31FAA005CDE56 /* TuroScrollLockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TuroScrollLockView.swift; path = Turo/TuroScrollLockView.swift; sourceTree = "<group>"; };
 		390D1CE91CB31FAA005CDE56 /* TuroScrollLockViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuroScrollLockViewManager.h; path = Turo/TuroScrollLockViewManager.h; sourceTree = "<group>"; };
 		390D1CEA1CB31FAA005CDE56 /* TuroScrollLockViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuroScrollLockViewManager.m; path = Turo/TuroScrollLockViewManager.m; sourceTree = "<group>"; };
+		39B0F1B01CBB13BC000934A5 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Turo/main.swift; sourceTree = "<group>"; };
 		39F789FC1CB3270F00D2EF86 /* Turo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Turo-Bridging-Header.h"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -260,9 +257,11 @@
 		13B07FAE1A68108700A75B9A /* Turo */ = {
 			isa = PBXGroup;
 			children = (
+				39B0F1B01CBB13BC000934A5 /* main.swift */,
+				3906E4501CBB0E2A00DB0D10 /* AppDelegate.swift */,
+				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				390D1CE01CB31FAA005CDE56 /* ForwardingUIScrollViewDelegate.h */,
 				390D1CE11CB31FAA005CDE56 /* ForwardingUIScrollViewDelegate.m */,
-				390D1CE21CB31FAA005CDE56 /* main.jsbundle */,
 				390D1CE31CB31FAA005CDE56 /* SyntaxHighlightTextStorage.swift */,
 				390D1CE41CB31FAA005CDE56 /* TextEditor.swift */,
 				390D1CE61CB31FAA005CDE56 /* TuroEditorManager.h */,
@@ -270,13 +269,9 @@
 				390D1CE81CB31FAA005CDE56 /* TuroScrollLockView.swift */,
 				390D1CE91CB31FAA005CDE56 /* TuroScrollLockViewManager.h */,
 				390D1CEA1CB31FAA005CDE56 /* TuroScrollLockViewManager.m */,
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
-				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = Turo;
 			sourceTree = "<group>";
@@ -565,7 +560,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				390D1CEC1CB31FAA005CDE56 /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -605,12 +599,12 @@
 			files = (
 				390D1CF21CB31FAA005CDE56 /* TuroScrollLockViewManager.m in Sources */,
 				390D1CF11CB31FAA005CDE56 /* TuroScrollLockView.swift in Sources */,
+				39B0F1B11CBB13BC000934A5 /* main.swift in Sources */,
 				390D1CED1CB31FAA005CDE56 /* SyntaxHighlightTextStorage.swift in Sources */,
-				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				3906E4511CBB0E2A00DB0D10 /* AppDelegate.swift in Sources */,
 				390D1CEE1CB31FAA005CDE56 /* TextEditor.swift in Sources */,
 				390D1CEB1CB31FAA005CDE56 /* ForwardingUIScrollViewDelegate.m in Sources */,
 				390D1CF01CB31FAA005CDE56 /* TuroEditorManager.m in Sources */,
-				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
