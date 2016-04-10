@@ -2,6 +2,7 @@
 var _ = require('underscore');
 var React = require('react-native');
 var {
+  ListView,
   PropTypes,
   ScrollView,
   Text,
@@ -34,6 +35,11 @@ var EditorAccessory = React.createClass({
   getInitialState: function () {
     return {
       completions: [],
+      completionsDataSource: new ListView.DataSource({
+        rowHasChanged (row1, row2) {
+          return row1 !== row2
+        }
+      }),
       prefix: '',
       keyboardType: 'none',
     };
@@ -81,42 +87,40 @@ var EditorAccessory = React.createClass({
       );
   },
 
+  renderSuggestionItem (rowData: string, sectionID: number, rowID: number) {
+      return this.renderSuggestion(rowData)
+  },
+
   render: function () {
     var actions = this.props.actions;
 
     var {
       completions,
+      completionsDataSource,
       prefix,
       keyboardType,
     } = this.state;
 
-    if (completions.length > 10) {
-      completions.length = 10;
-    }
-
     let buttons = allButtons[keyboardType].map(this.renderButton, this)
     let suggestions = completions.map(this.renderSuggestion, this)
-    if (completions.length > 0) {
-      return (
-        <View style={styles.container}>
-            {buttons}
-            <ScrollView horizontal={true} style={styles.scrollView}>
-              {suggestions}
-            </ScrollView>
-        </View>
-      )
-    } else {
-      return (
-        <View style={styles.container}>
+
+    return (
+      <View style={styles.container}>
           {buttons}
-        </View>
-      )
-    }
+          <ListView
+            horizontal={true}
+            dataSource={completionsDataSource}
+            renderRow={this.renderSuggestionItem}
+          />
+      </View>
+    )
   },
 
   _handleCursorChange: function () {
-    var actions = this.props.actions;
-    this.setState(actions.tabCompletion);
+    let tabCompletion = this.props.actions.tabCompletion;
+    let { completions, prefix } = tabCompletion
+    tabCompletion.completionsDataSource = this.state.completionsDataSource.cloneWithRows(completions)
+    this.setState(tabCompletion);
   },
 
   _handleStaticButton: function (b) {
