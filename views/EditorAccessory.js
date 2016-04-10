@@ -9,6 +9,21 @@ var {
   View,
 } = React;
 
+var allButtons = {
+  alphanum: [
+    {text: 'Done', action: 'dismissKeyboard', },
+    {text: '123', action: 'numbersKeyboard', },
+  ],
+  none: [
+    // {text: 'ABC', action: 'qwertyKeyboard', },
+    {text: '123', action: 'numbersKeyboard', },
+  ],
+  numbers: [
+    {text: 'Done', action: 'dismissKeyboard', },
+    {text: 'ABC', action: 'qwertyKeyboard', },
+  ],
+};
+
 var styles = require('../styles/editor-accessory');
 
 var EditorAccessory = React.createClass({
@@ -22,7 +37,7 @@ var EditorAccessory = React.createClass({
       prefix: '',
       keyboardType: 'none',
     };
-  }, 
+  },
 
   componentDidMount: function () {
     var actions = this.props.actions;
@@ -45,8 +60,9 @@ var EditorAccessory = React.createClass({
   renderButton: function (b) {
       return (
         <TouchableHighlight
+            key={b.text}
             activeOpacity={0.2}
-            style={styles.button} 
+            style={styles.button}
             onPress={() => this._handleStaticButton(b)} >
           <Text style={styles.buttonText}>{b.text}</Text>
         </TouchableHighlight>
@@ -56,8 +72,9 @@ var EditorAccessory = React.createClass({
   renderSuggestion: function(completion) {
       return (
         <TouchableHighlight
+            key={completion}
             activeOpacity={0.2}
-            style={styles.completion} 
+            style={styles.completion}
             onPress={() => this._handlePress(completion)} >
           <Text style={styles.text}>{completion}</Text>
         </TouchableHighlight>
@@ -68,7 +85,7 @@ var EditorAccessory = React.createClass({
     var actions = this.props.actions;
 
     var {
-      completions, 
+      completions,
       prefix,
       keyboardType,
     } = this.state;
@@ -76,31 +93,25 @@ var EditorAccessory = React.createClass({
     if (completions.length > 10) {
       completions.length = 10;
     }
-    var suggestions = _.map(completions, (completion) => this.renderSuggestion(completion));
-    var allButtons = {
-      alphanum: [
-        {text: 'Done', action: 'dismissKeyboard', },
-        {text: '123', action: 'numbersKeyboard', },
-      ],
-      none: [
-        // {text: 'ABC', action: 'qwertyKeyboard', },
-        {text: '123', action: 'numbersKeyboard', },
-      ],
-      numbers: [
-        {text: 'Done', action: 'dismissKeyboard', },
-        {text: 'ABC', action: 'qwertyKeyboard', },
-      ],
-    };
 
-    var buttons = allButtons[keyboardType];
-    return (
+    let buttons = allButtons[keyboardType].map(this.renderButton, this)
+    let suggestions = completions.map(this.renderSuggestion, this)
+    if (completions.length > 0) {
+      return (
         <View style={styles.container}>
-          {buttons.map(this.renderButton, this)}
-          <ScrollView horizontal={true} style={styles.scrollView}>
-            {completions.map(this.renderSuggestion, this)}
-          </ScrollView>
+            {buttons}
+            <ScrollView horizontal={true} style={styles.scrollView}>
+              {suggestions}
+            </ScrollView>
         </View>
-    );
+      )
+    } else {
+      return (
+        <View style={styles.container}>
+          {buttons}
+        </View>
+      )
+    }
   },
 
   _handleCursorChange: function () {
@@ -135,7 +146,7 @@ var EditorAccessory = React.createClass({
     if (prefix && text.indexOf(prefix) === 0) {
       text = text.substring(prefix.length);
     }
-    // if the prefix == text, then we need 
+    // if the prefix == text, then we need
     // to move the text forward somehow.
     if (!text) {
       text = ' ';

@@ -31,35 +31,38 @@ var MultiKey = React.createClass({
     return (
       <Key {...actual} controls={controls}/>
     );
-  },  
+  },
 });
 
-var Key = React.createClass({  
+var Key = React.createClass({
   propTypes: {
     label: PropTypes.string.isRequired,
-    literal: PropTypes.string.isRequired,
+    literal: PropTypes.string,
     tokenType: PropTypes.string,
 
-    controls: PropTypes.object.isRequired,
+    // TODO this should be required, but needs us to have a subkey/multikey.
+    controls: PropTypes.object,
     style: View.propTypes.style,
   },
 
   render: function () {
+    let key = this.props.label + "_" + this.props.tokenType;
     if (this.props.controls.isEnabled(this.props)) {
       var keyCap = this.props.style || styles.keyCap;
       var textStyle = this.props.textStyle || styles.keyText;
       return (
         <TouchableHighlight
             activeOpacity={0.2}
-            style={keyCap} 
+            style={keyCap}
             onPress={this._handlePress}
+            key={key}
         >
           <Text style={textStyle}>{this.props.label}</Text>
         </TouchableHighlight>
       );
     } else {
       return (
-        <View style={[styles.keyCap, styles.keyCapDisabled]}>
+        <View style={[styles.keyCap, styles.keyCapDisabled]} key={key}>
           <Text style={styles.keyTextDisabled}>{this.props.label}</Text>
         </View>
       );

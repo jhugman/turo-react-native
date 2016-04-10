@@ -11,7 +11,7 @@ var {
 } = React;
 
 
-var TuroApp = require('./views/document-editor-screen'),
+var TuroApp = require('./views/DocumentEditorScreen'),
     EditorAccessory = require('./views/EditorAccessory');
 
 AppRegistry.registerComponent('Turo', () => TuroApp);

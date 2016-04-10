@@ -16,7 +16,7 @@ var {
   MultiKey,
 } = Keys;
 
-var digits = 'digits', 
+var digits = 'digits',
     nav = 'nav',
     multOp = 'multiplyDivide',
     addOp = 'plusMinus',
