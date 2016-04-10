@@ -47,26 +47,25 @@ var Key = React.createClass({
 
   render: function () {
     let key = this.props.label + "_" + this.props.tokenType;
+    let keyCap, onPress, textStyle
     if (this.props.controls.isEnabled(this.props)) {
-      var keyCap = this.props.style || styles.keyCap;
-      var textStyle = this.props.textStyle || styles.keyText;
-      return (
-        <TouchableHighlight
-            activeOpacity={0.2}
-            style={keyCap}
-            onPress={this._handlePress}
-            key={key}
-        >
-          <Text style={textStyle}>{this.props.label}</Text>
-        </TouchableHighlight>
-      );
+      keyCap = this.props.style || styles.keyCap;
+      onPress = this._handlePress
+      textStyle = this.props.textStyle || styles.keyText;
     } else {
-      return (
-        <View style={[styles.keyCap, styles.keyCapDisabled]} key={key}>
-          <Text style={styles.keyTextDisabled}>{this.props.label}</Text>
-        </View>
-      );
+      keyCap = [styles.keyCap, styles.keyCapDisabled]
+      textStyle = styles.keyTextDisabled
     }
+    return (
+      <TouchableHighlight
+          activeOpacity={0.2}
+          style={keyCap}
+          onPress={onPress}
+          key={key}
+      >
+        <Text style={textStyle}>{this.props.label}</Text>
+      </TouchableHighlight>
+    )
   },
 
   _handlePress: function (e) {
