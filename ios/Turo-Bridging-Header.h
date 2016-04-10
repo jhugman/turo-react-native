@@ -9,5 +9,4 @@
 #import "RCTViewManager.h"
 #import "UIView+React.h"
 
-#import "AppDelegate.h"
 #import "ForwardingUIScrollViewDelegate.h"
