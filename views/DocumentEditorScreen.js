@@ -72,6 +72,7 @@ var EditorScreen = React.createClass({
 
       this.setState({
         doc: doc,
+        initialText: doc.text,
         actions: actions,
         loaded: true,
         keyboardType: 'none',
@@ -105,8 +106,8 @@ var EditorScreen = React.createClass({
     return (
       <View style={styles.container}>
         <EditorSurface style={styles.textEditor}
-          initialText={doc.text}
           doc={this.state.doc}
+          initialText={this.state.initialText}
           actions={actions} />
         <EditorAccessory style={styles.editorAccessory} actions={actions} />
         {this._renderKeyboardArea(actions)}
